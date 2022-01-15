@@ -28,13 +28,13 @@ int main()
         { 32, 32,32, 32,32, 124,32, 32,32, 32,32, 124,32, 32,32,32,32 },
         { 32, 32,32, 32,32, 124,32, 32,32, 32,32, 124,32, 32,32,32,32 }
         };
-        if (level == 0) {
+        if (level == 0) {//выбор уровня
             cout << "select level:";
             cin >> level;
-        }
+        }//какой сейчас уровень
         if (level == 1) {
             counter = 0, x = 8, y = 8;
-            for (int i = 0; counter < 540; i++) {
+            for (int i = 0; counter < 540; i++) {//управление
                 if (_kbhit()) {
                     you = _getch();
                     if (you == 'w' && y != 2 || you == 'W' && y != 2) {
@@ -58,6 +58,8 @@ int main()
                     }
                 }
                 map[y][x] = 5;
+                //горизонтальные лазеры
+                //верхний лазер
                 if (counter == 25||counter==223 || counter == 289 || counter == 421 || counter == 487) {
                     map[0][i] = 45; map[4][i] = 45;
                 }
@@ -76,7 +78,7 @@ int main()
                     map[1][11] = 124; map[2][11] = 124; map[3][11] = 124;
                 }
 
-
+                //центральный лазер
 
 
                 if (counter == 57|| counter == 223||counter==256 || counter == 454 || counter == 503) {
@@ -97,7 +99,7 @@ int main()
                     map[7][11] = 124; map[8][11] = 124; map[9][11] = 124;
                 }
 
-
+                //нижний лазер
 
                 if (counter == 91||counter == 256 || counter == 289 || counter == 421 || counter == 519) {
                     map[12][i] = 45; map[16][i] = 45;
@@ -119,7 +121,8 @@ int main()
 
 
 
-
+                //вертикальные лазеры
+                //левый лазер
 
 
 
@@ -141,7 +144,7 @@ int main()
                     map[11][1] = 45; map[11][2] = 45; map[11][3] = 45;
                 }
 
-
+                //центральный лазер
 
                 if (counter == 157 || counter == 322 || counter == 355 || counter == 454) {
                     map[i][6] = 124; map[i][10] = 124;
@@ -161,7 +164,7 @@ int main()
                     map[11][7] = 45; map[11][8] = 45; map[11][9] = 45;
                 }
 
-
+                //правый лазер
 
 
                 if (counter == 190 || counter == 355 || counter == 388 || counter == 421) {
@@ -184,30 +187,30 @@ int main()
 
 
 
-
+                //отрисовка поля
                 cout << map[i][0] << map[i][1] << map[i][2] << map[i][3] << map[i][4] << map[i][5] << map[i][6] << map[i][7] << map[i][8] << map[i][9] << map[i][10] << map[i][11] << map[i][12] << map[i][13] << map[i][14] << map[i][15] << map[i][16] << endl;
 
-                if (i == 16) {
+                if (i == 16) {//очищение консоли
                     i = -1;
                     counter++;
                     system("cls");
-                    if (map[y + 1][x] == 124 || map[y][x + 1] == 45) {
+                    if (map[y + 1][x] == 124 || map[y][x + 1] == 45) {//смерть
                         cout << endl << endl << endl << endl << endl << endl << "                  GAME OVER"
                             << endl << endl << endl << endl << "                 R to restart, Q to exit" << endl;
-                        level = 0;
                         idk = _getch();
                         if (idk == 'R' || idk == 'r')level = 1;
                         if (idk == 'Q' || idk == 'q')return 0;
                         break;
                     }
                 }
+                //оповещение о том, что ты прошел уровень
                 if (counter == 540)cout << "YOU BEAT THE LEVEL 1, GOOD JOB!" << endl;
                 level = 0;
             }
-        }
+        }//определение уровня
         else if (level == 2) {
             counter = 0, x = 8, y = 8;
-            for (int i = 0; counter < 500; i++) {
+            for (int i = 0; counter < 500; i++) {//управление
                 if (_kbhit()) {
                     you = _getch();
                     if (you == 'w' && y == 2 || you == 'W' && y == 2) {
@@ -247,6 +250,7 @@ int main()
                     }
                 }
                 //горизонтальные лазеры
+                //верхний лазер
                 map[y][x] = 5;
                 if (counter == 25 || counter == 157 || counter == 400) {
                     map[0][i] = 45; map[4][i] = 45;
@@ -266,7 +270,7 @@ int main()
                     map[1][11] = 124; map[2][11] = 124; map[3][11] = 124;
                 }
 
-                //центр лазер
+                //центральный лазер
 
 
                 if (counter == 69 || counter == 135 || counter == 172 || counter == 414) {
@@ -309,7 +313,7 @@ int main()
 
 
                 //вертикальные лазеры
-
+                //левый лазер
 
 
 
@@ -331,7 +335,7 @@ int main()
                     map[11][1] = 45; map[11][2] = 45; map[11][3] = 45;
                 }
 
-                //центр лазер
+                //центральный лазер
 
                 if (counter == 25 || counter == 113 || counter == 157 || counter == 230) {
                     map[i][6] = 124; map[i][10] = 124;
@@ -373,14 +377,14 @@ int main()
 
 
 
-
+                //отрисовка поля
                 cout << map[i][0] << map[i][1] << map[i][2] << map[i][3] << map[i][4] << map[i][5] << map[i][6] << map[i][7] << map[i][8] << map[i][9] << map[i][10] << map[i][11] << map[i][12] << map[i][13] << map[i][14] << map[i][15] << map[i][16] << endl;
 
-                if (i == 16) {
+                if (i == 16) {//очищение консоли
                     i = -1;
                     counter++;
                     system("cls");
-                    if (map[y + 1][x] == 124 || map[y][x + 1] == 45) {
+                    if (map[y + 1][x] == 124 || map[y][x + 1] == 45) {//смерть
                         cout << endl << endl << endl << endl << endl << endl << "                  GAME OVER"
                             << endl << endl << endl << endl << "                 R to restart, Q to exit" << endl;
                         if (counter == 264|| counter == 265)cout << "                  try press A" << endl;
@@ -394,12 +398,11 @@ int main()
                        
                         break;
                     }
-                }
+                }//оповещение о прохождении уровня
                 if (counter == 500)cout << "YOU BEAT THE LEVEL 2,WELL DONE!(i cant make levels longer, sorry)" << endl;
                 level = 0;
             }
         }
-        else level = 0;
     }
 } 
 
